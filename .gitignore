@@ -1,0 +1,18 @@
+# Índice vetorial — derivado, reconstruível pelo script de ingestão
+data/vector_store/
+
+# Caches e bytecode do Python
+__pycache__/
+*.pyc
+
+# Segredos — NUNCA versionar
+.env
+
+# Ambientes virtuais
+venv/
+.venv/
+
+# Artefatos de IDE / sistema operacional
+.vscode/
+.idea/
+.DS_Store

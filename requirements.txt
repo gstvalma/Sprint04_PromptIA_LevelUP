@@ -1,0 +1,6 @@
+# --- Dependências do pipeline de RAG do BluaDiagnostics (Sprint 2) ---
+# Modelo de embedding open-source (família E5 multilíngue) + tokenizer:
+sentence-transformers>=2.7.0
+# Vector store local com persistência e filtragem por metadados:
+chromadb>=0.5.0
+# (torch é trazido transitivamente pelo sentence-transformers)

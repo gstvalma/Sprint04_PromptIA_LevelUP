@@ -4,3 +4,7 @@ sentence-transformers>=2.7.0
 # Vector store local com persistência e filtragem por metadados:
 chromadb>=0.5.0
 # (torch é trazido transitivamente pelo sentence-transformers)
+
+langgraph>=0.2.0
+
+streamlit>=1.36.0

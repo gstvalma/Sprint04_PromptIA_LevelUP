@@ -1,10 +1,36 @@
-# --- Dependências do pipeline de RAG do BluaDiagnostics (Sprint 2) ---
-# Modelo de embedding open-source (família E5 multilíngue) + tokenizer:
+# ============================================================================
+#  BluaDiagnostics — Assistente Clínico Digital de Triagem (Care Plus)
+#  Dependências de runtime — Sprint 2
+#  Python >= 3.10
+# ============================================================================
+
+# --- Orquestração multiagente (Sprint 4/grafo) ---
+# Grafo de estado, roteamento condicional e nós dos agentes.
+langgraph>=1.2,<2.0
+
+# --- Pipeline de RAG (Sprint 2) ---
+# Vector store local com persistência e filtragem por metadados.
+chromadb>=1.5,<2.0
+# Modelo de embedding open-source multilíngue (família E5) + tokenizer.
+# Traz torch/transformers transitivamente (download de ~2 GB no primeiro uso).
 sentence-transformers>=2.7.0
-# Vector store local com persistência e filtragem por metadados:
-chromadb>=0.5.0
-# (torch é trazido transitivamente pelo sentence-transformers)
 
-langgraph>=0.2.0
+# --- Interface do usuário (Sprint 5) ---
+# Aplicação web de demonstração do fluxo de check-up digital.
+streamlit>=1.36
 
-streamlit>=1.36.0
+# ============================================================================
+#  Dependências de desenvolvimento (testes)
+#  Instale com:  pip install -r requirements.txt pytest
+# ============================================================================
+# pytest>=8.0          # descomente para rodar a suíte de testes (35 testes)
+
+# ----------------------------------------------------------------------------
+# Observações:
+#  * A camada de ferramentas (src/tools) e o avaliador (evals/run_evals.py)
+#    usam apenas a biblioteca padrão do Python — sem dependências externas.
+#  * O grafo roda OFFLINE com o cérebro heurístico, sem chave de API. As
+#    bibliotecas de embedding (sentence-transformers/torch) só são exercitadas
+#    ao popular o vector store real (scripts/ingest_knowledge_base.py) ou ao
+#    usar o ClinicalRetriever em produção.
+# ----------------------------------------------------------------------------
